@@ -19,7 +19,8 @@
     --second-bg-color:#080808;
     --text-color:#ffff;
     --main-color:#ffff00;
-    --text-color_2:#362702ff;;
+    --text-color_2:#362702ff;
+    --color4:#ffff00c0;
 }
  
 
@@ -43,6 +44,7 @@ body{
      justify-content: space-between;
      z-index: 5;
      padding: 22px;
+    border-bottom: 1px solid var(--text-color);
 }
 
 .logo{
@@ -136,31 +138,79 @@ span{
 }
 
 
+
+
+.home__img__wrapper{
+    margin-inline: auto 2rem;
+    position: relative;
+}
+
+.home__img__wrapper::before,
+.home__img__wrapper::after{
+          content: "";
+          position: absolute; 
+          inset: 0;
+}
+
+.home__img__wrapper::before{
+    background:linear-gradient(#ffff0085,#ffff0068);
+    animation: animate__before 8s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--color1);
+}
+
+
+  /* Home animation */
+
+.home__img__wrapper::after,
+.home__img{
+    background:linear-gradient( #ffff006e,#eaff0017);
+    animation: animate__after  8s ease-in-out infinite;
+    box-shadow: 0 0 40px var(--color5);
+}
+
+.home__img{
+    z-index:1;
+    position: relative;
+    vertical-align: middle;
+     width: 320px;
+     border: 1px solid #ffff;
+     box-shadow: 0 0 10px var(--main-color),
+                 0 0 20px var(--main-color), 
+                 0 0 30px var(--main-color);
+}
+
+@keyframes animate__after{
+    0%{
+     border-radius: 65% 35% 29% 71% / 55% 30% 70% 45% ;
+    }
+
+    50%{
+     border-radius: 21% 79% 50% 50% / 21% 50% 50% 79% ;
+    }
+
+    100%{
+     border-radius: 65% 35% 29% 71% / 55% 30% 70% 45% ;
+    }
+}
+
+@keyframes animate__before{
+ 0%{
+  border-radius: 21% 79% 50% 50% / 21% 50% 50% 79% ;
+ }
+
+ 50%{
+  border-radius: 65% 35% 29% 71% / 55% 30% 70% 45% ;
+ }
+
+100%{
+  border-radius: 21% 79% 50% 50% / 21% 50% 50% 79% ;
+ }
+}  
+
+
+
 .home-img{
     border-radius: 50%;
-}
-
-.home-img img{
-    width: 320px;
-    border-radius: 50%;
-    box-shadow: 0 0 90px var(--main-color);
-    border: 10px solid var(--main-color);
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    animation: hu__hu__ infinite 2s ease-in-out
-}
-
-
-@keyframes hu__hu__ {
-    50% { transform: translateY(20px) }
-}
-
-.home-img img:hover{
-    transform: scale(1.1);
-    box-shadow: 0 0 35px var(--main-color),
-    0 0 50px var(--main-color),
-    0 0 90px var(--main-color);
-    border: 10px solid var(--text-color);
 }
 
 .home-content p{
@@ -444,8 +494,10 @@ span{
         position: absolute;
         top: 100%;
         right: 0;
-        width: 50%;
-        background-color: var(--second-bg-color);
+        left: 0;
+        width: 70%;
+        height: 50vh;
+        background-color: #000000bf;
         padding: 1rem 2%;
         display: none;
         backdrop-filter: blur(20px);
@@ -455,14 +507,16 @@ span{
         display: block;
      }
 
+
      .navbar a{
         margin: 0;
         padding: 0.5rem 0;
         display: block;
         color: #ffff;
+        margin-top: 30px;
         text-align: center;
-        margin-top: 15px;
      }
+
      .home{
         flex-direction: column-reverse;
         margin: 5rem 4rem;
