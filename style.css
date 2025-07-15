@@ -492,31 +492,46 @@ span{
 
      .navbar{
         position: absolute;
-        top: 100%;
+        top:100%;
         right: 0;
-        left: 0;
-        width: 70%;
-        height: 50vh;
-        background-color: #000000bf;
+        left: 100%;
+        width:300px;
+        height: 55vh;
+        background-color: #000000;
         padding: 1rem 2%;
         display: none;
         backdrop-filter: blur(20px);
         border: 2px solid var(--text-color);
+        transition: 0.3s ease-in-out;
+        border-top-left-radius:10%;
+        border-bottom-left-radius: 10%;
+        
      }
      .navbar.active{
         display: block;
+        left: calc(100% - 300px);
      }
 
+    
 
+    .navbar a:hover,
+    .navbar a.active{
+    color: var(--main-color);
+     border-bottom:none;
+}
+     
+ 
      .navbar a{
         margin: 0;
         padding: 0.5rem 0;
         display: block;
-        color: #ffff;
         margin-top: 30px;
         text-align: center;
+        border-bottom: none;
+        font-size: 1.3rem;
      }
 
+   
      .home{
         flex-direction: column-reverse;
         margin: 5rem 4rem;
@@ -753,7 +768,7 @@ span{
      margin: 3rem 1.5rem 3rem 0;
      transition: 0.3s ease-in-out;
      text-decoration: none;
-        display: inline-flex;
+    display: inline-flex;
         align-items: center;
         justify-content: center;
 
@@ -761,12 +776,11 @@ span{
 
 .social-icon a:hover{
      transform: scale(1.1)translateY(-5px);
-     box-shadow: 0 0 20px var(--main-color), 0 0 30px var(--main-color), 0 0 50px var(--main-color);
+     box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color), 0 0 30px var(--main-color);
 }
 
 .copyright{
     color: var(--text-color);
-    padding: 1rem 0;
     text-align: center;
     font-size: 1.2rem;
 }
